@@ -237,7 +237,7 @@
 				<property name="tokenEndpointAuthMethod" value="SECRET_BASIC" />
 				<property name="redirectUris">
 					<set>
-						<value>http://localhost:8080/simple-web-app/openid_connect_login</value>
+						<value>${webappRoot}/openid_connect_login</value>
 					</set>
 				</property>
 			</bean>
@@ -280,7 +280,7 @@
 						<property name="tokenEndpointAuthMethod" value="SECRET_BASIC" />
 						<property name="redirectUris">
 							<set>
-								<value>http://localhost:8080/simple-web-app/openid_connect_login</value>
+								<value>${webappRoot}/openid_connect_login</value>
 							</set>
 						</property>
 					</bean>
@@ -312,7 +312,7 @@
 						<property name="tokenEndpointAuthMethod" value="SECRET_BASIC" />
 						<property name="redirectUris">
 							<set>
-								<value>http://localhost:8080/simple-web-app/openid_connect_login</value>
+								<value>${webappRoot}/openid_connect_login</value>
 							</set>
 						</property>
 					</bean>
@@ -334,7 +334,7 @@
 				<property name="tokenEndpointAuthMethod" value="SECRET_BASIC" />
 				<property name="redirectUris">
 					<set>
-						<value>http://localhost:8080/simple-web-app/openid_connect_login</value>
+						<value>${webappRoot}/openid_connect_login</value>
 					</set>
 				</property>
 			</bean>
