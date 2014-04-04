@@ -100,9 +100,9 @@
 	<bean id="openIdConnectAuthenticationFilter" class="org.mitre.openid.connect.client.OIDCAuthenticationFilter">
 		<property name="authenticationManager" ref="authenticationManager" />
 
-		<property name="issuerService" ref="hybridIssuerService" />
-		<property name="serverConfigurationService" ref="dynamicServerConfigurationService" />
-		<property name="clientConfigurationService" ref="dynamicClientConfigurationService" />
+		<property name="issuerService" ref="staticIssuerService" />
+		<property name="serverConfigurationService" ref="staticServerConfigurationService" />
+		<property name="clientConfigurationService" ref="staticClientConfigurationService" />
 		<property name="authRequestOptionsService" ref="staticAuthRequestOptionsService" />
 		<property name="authRequestUrlBuilder" ref="plainAuthRequestUrlBuilder" />
 		
@@ -164,7 +164,7 @@
 	<!-- 
 		Static server configuration, contains a map of server configuration objects keyed by the issuer URL.
 	-->
-	<bean class="org.mitre.openid.connect.client.service.impl.StaticServerConfigurationService">
+	<bean class="org.mitre.openid.connect.client.service.impl.StaticServerConfigurationService" id="staticServerConfigurationService" >
 		<property name="servers">
 			<map>
 				<entry key="http://localhost:8080/openid-connect-server-webapp/">
