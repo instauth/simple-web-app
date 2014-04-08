@@ -121,7 +121,7 @@
 		Static issuer service, returns the same issuer for every request.
 	-->
 	<bean class="org.mitre.openid.connect.client.service.impl.StaticSingleIssuerService" id="staticIssuerService">
-		<property name="issuer" value="${idp.url}/" />
+		<property name="issuer" value="${idp.url}" />
 	</bean>	
 
 	<!-- 
@@ -167,13 +167,13 @@
 	<bean class="org.mitre.openid.connect.client.service.impl.StaticServerConfigurationService" id="staticServerConfigurationService" >
 		<property name="servers">
 			<map>
-				<entry key="${idp.url}/">
+				<entry key="${idp.url}">
 					<bean class="org.mitre.openid.connect.config.ServerConfiguration">
 						<property name="issuer" value="${idp.url}/" />
-						<property name="authorizationEndpointUri"	value="${idp.url}/authorize" />
-						<property name="tokenEndpointUri"	value="${idp.url}/token" />
-						<property name="userInfoUri" value="${idp.url}/userinfo" />
-						<property name="jwksUri" value="${idp.url}/jwk" />
+						<property name="authorizationEndpointUri"	value="${idp.authorization.url}" />
+						<property name="tokenEndpointUri"	value="${idp.token.url}" />
+						<property name="userInfoUri" value="${idp.userInfo.url}" />
+						<property name="jwksUri" value="${idp.jwks.url}" />
 					</bean>
 				</entry>
 			</map>
@@ -264,7 +264,7 @@
 	<bean class="org.mitre.openid.connect.client.service.impl.StaticClientConfigurationService" id="staticClientConfigurationService">
 		<property name="clients">
 			<map>
-				<entry key="${idp.url}/">
+				<entry key="${idp.url}">
 					<bean class="org.mitre.oauth2.model.RegisteredClient">
 						<property name="clientId" value="client" />
 						<property name="clientSecret" value="secret" />

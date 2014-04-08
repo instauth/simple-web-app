@@ -1,0 +1,22 @@
+#!/bin/sh
+
+PROJ_DIR=$(dirname "$0")
+PORT=80
+LOCKFILE="$PROJ_DIR"/.lock
+
+trap "rm -f $LOCKFILE" INT TERM
+
+cd "$PROJ_DIR"
+
+[ -f "$LOCKFILE" ] && { echo "Lockfile present. Already started." ; exit 0 ; }
+
+IPADDR=$(ifconfig eth0 | grep 'inet addr:' | cut -d: -f2 | cut -d" " -f1)
+BASEURL=http://$(echo $IPADDR:$PORT | sed 's/:80$//')
+
+echo "Configured base URL: $BASEURL"
+
+echo $$ > "$LOCKFILE"
+
+/usr/bin/mvn -D jetty.port=$PORT -DwebappRoot="$BASEURL" -f $PROJ_DIR/pom.xml jetty:run 
+
+rm -f "$LOCKFILE"

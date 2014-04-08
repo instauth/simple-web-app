@@ -1,0 +1,10 @@
+#!/bin/sh
+
+PROJ_DIR=$(dirname "$0")
+LOCKFILE="$PROJ_DIR"/.lock
+
+[ -f "$LOCKFILE" ] || { echo not running, bailing out. ; exit 0; }
+
+killall java
+
+while [ -f "$LOCKFILE" ]; do sleep 1; done
