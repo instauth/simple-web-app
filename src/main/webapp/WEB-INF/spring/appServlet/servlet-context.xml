@@ -169,7 +169,7 @@
 			<map>
 				<entry key="${idp.url}">
 					<bean class="org.mitre.openid.connect.config.ServerConfiguration">
-						<property name="issuer" value="${idp.url}/" />
+						<property name="issuer" value="${idp.url}" />
 						<property name="authorizationEndpointUri"	value="${idp.authorization.url}" />
 						<property name="tokenEndpointUri"	value="${idp.token.url}" />
 						<property name="userInfoUri" value="${idp.userInfo.url}" />
@@ -195,7 +195,7 @@
 				<entry key="http://localhost:8080/openid-connect-server-webapp/">
 					<bean class="org.mitre.openid.connect.config.ServerConfiguration">
 						<property name="issuer" value="http://localhost:8080/openid-connect-server-webapp/" />
-						<property name="authorizationEndpointUri"	value="$http://localhost:8080/openid-connect-server-webapp/authorize" />
+						<property name="authorizationEndpointUri"	value="http://localhost:8080/openid-connect-server-webapp/authorize" />
 						<property name="tokenEndpointUri"	value="http://localhost:8080/openid-connect-server-webapp/token" />
 						<property name="userInfoUri" value="http://localhost:8080/openid-connect-server-webapp/userinfo" />
 						<property name="jwksUri" value="http://localhost:8080/openid-connect-server-webapp/jwk" />
