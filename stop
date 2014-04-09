@@ -5,6 +5,13 @@ LOCKFILE="$PROJ_DIR"/.lock
 
 [ -f "$LOCKFILE" ] || { echo not running, bailing out. ; exit 0; }
 
-killall java
+killall java || rm -f "$LOCKFILE"
 
-while [ -f "$LOCKFILE" ]; do sleep 1; done
+# wait for 60 seconds for server to die
+for i in {1..60}; do
+	[ -f "$LOCKFILE" ] || exit 0
+	sleep 1
+done
+
+# enough waiting. kill this lockfile already.
+rm -f "$LOCKFILE"
